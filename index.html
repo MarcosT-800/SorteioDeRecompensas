@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorteio de Recompensas</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+    <h1>Sorteio de Recompensas - Pomodoro</h1>
+    <p id="cronometro"></p>
+    <p id="recompensa"></p>
+    <button onclick="iniciarPomodoro()">Iniciar Pomodoro</button>
+
+    <script>
+        // Definindo as opções de recompensa
+        const opcoesRecompensa = [
+            "Alongamento Expresso",
+            "Respiração Profunda",
+            "Música Relaxante",
+            "Vídeo Engraçado",
+            "Jogo Rápido",
+            "Leitura Leve",
+            "Goma de Mascar",
+            "Música Inspiradora",
+            "Vídeo Explicativo",
+            "Podcast Inspirador",
+            "Artigo Relevante",
+            "Mensagem Motivacional",
+            "Conversa Rápida",
+            "Rede Social de Estudo",
+            "Massageie suas mãos",
+        ];
+
+   
+        let tempoPomodoro = 3000; // 25 minutos em segundos
+        let tempoIntervalo = 600; // 10 minutos em segundos
+
+        function iniciarPomodoro() {
+            atualizarCronometro(tempoPomodoro);
+            let intervalo = setInterval(function() {
+                if (tempoPomodoro <= 0) {
+                    clearInterval(intervalo);
+                    sortearRecompensa();
+                    atualizarCronometro(tempoIntervalo);
+                } else {
+                    tempoPomodoro--;
+                    atualizarCronometro(tempoPomodoro);
+                }
+            }, 1000);
+        }
+
+        function atualizarCronometro(segundos) {
+            const minutos = Math.floor(segundos / 60);
+            const segundosRestantes = segundos % 60;
+            document.getElementById("cronometro").innerText = "Tempo restante: " + minutos + "m " + segundosRestantes + "s";
+        }
+
+        function sortearRecompensa() {
+            // Sorteando uma recompensa aleatória
+            const indice = Math.floor(Math.random() * opcoesRecompensa.length);
+            const recompensa = opcoesRecompensa[indice];
+
+            // Exibindo a recompensa sorteada
+            document.getElementById("recompensa").innerText = "Sua recompensa é: " + recompensa;
+        }
+    </script>
+</body>
+</html>
