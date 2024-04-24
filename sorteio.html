@@ -27,112 +27,87 @@
             background: linear-gradient(to bottom,
                     transparent,
                     rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+            position: relative;
+            margin: 0;
+            padding: 0;
         }
 
-        
-        .container {
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 100vh;
-            background: linear-gradient(0, #120c56, #000000);
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
         }
 
         .stars {
             top: 350px;
             width: 3px;
-        	height: 3px;
-        	border-radius: 50%;
-        	box-shadow: 50px 30px white,
-          100px 80px white,
-          80px 120px white,
-          300px 20px white,
-          250px 130px white,
-          200px 50px white,
-          150px 100px white,
-          320px 100px white;
-          animation: anim-stars 10s linear infinite;
-
+            height: 3px;
+            border-radius: 50%;
+            box-shadow: 50px 30px white, 100px 80px white, 80px 120px white, 300px 20px white, 250px 130px white,
+                200px 50px white, 150px 100px white, 320px 100px white;
+            animation: anim-stars 10s linear infinite;
         }
 
         .stars:after {
             content: " ";
-  position: absolute;
-  top: 350px;
-  width: 1px;
-  height: 1px;
-  border-radius: 50%;
-  box-shadow: 15px 15px white,
-    125px 35px white,
-    50px 80px white,
-    10px 120px white,
-    275px 90px white,
-    230px 10px white,
-    120px 130px white,
-    300px 130px white,
-    220px 115px white;
+            position: absolute;
+            top: 350px;
+            width: 1px;
+            height: 1px;
+            border-radius: 50%;
+            box-shadow: 15px 15px white, 125px 35px white, 50px 80px white, 10px 120px white, 275px 90px white,
+                230px 10px white, 120px 130px white, 300px 130px white, 220px 115px white;
         }
 
-        .stars2{
-  position: relative;
-  width: 1px;
-  height: 1px;
-  border-radius: 50%;
-  box-shadow: 15px 15px white,
-    125px 35px white,
-    50px 80px white,
-    10px 120px white,
-    275px 90px white,
-    230px 10px white,
-    120px 130px white,
-    300px 130px white,
-    220px 115px white;
-  animation: anim-stars 20s linear infinite;
-}
+        .stars2 {
+            position: relative;
+            width: 1px;
+            height: 1px;
+            border-radius: 50%;
+            box-shadow: 15px 15px white, 125px 35px white, 50px 80px white, 10px 120px white, 275px 90px white,
+                230px 10px white, 120px 130px white, 300px 130px white, 220px 115px white;
+            animation: anim-stars 20s linear infinite;
+        }
 
-.stars2::after{
-  content: " ";
-  position: absolute;
-  top: 150px;
-  width: 1px;
-  height: 1px;
-  border-radius: 50%;
-  box-shadow: 15px 15px white,
-    125px 35px white,
-    50px 80px white,
-    10px 120px white,
-    275px 90px white,
-    230px 10px white,
-    120px 130px white,
-    300px 130px white,
-    220px 115px white;
-}
+        .stars2::after {
+            content: " ";
+            position: absolute;
+            top: 150px;
+            width: 1px;
+            height: 1px;
+            border-radius: 50%;
+            box-shadow: 15px 15px white, 125px 35px white, 50px 80px white, 10px 120px white, 275px 90px white,
+                230px 10px white, 120px 130px white, 300px 130px white, 220px 115px white;
+        }
 
         @keyframes anim-stars {
-    from {
-        transform: translateY(0px);
-    }
-    to {
-        transform: translateY(-150px);
-    }
-}
+            from {
+                transform: translateY(0px);
+            }
+
+            to {
+                transform: translateY(-150px);
+            }
+        }
     </style>
 </head>
-<div class="w-full flex justify-between">
-    <button class="w-10 scursor-pointer duration-200 hover:scale-125 active:scale-100" title="Go Back">
-        <a href="index.html">
-            <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 24 24" class="stroke-blue-300">
-                <path stroke-linejoin="round" stroke-linecap="round" stroke-width="1.5" d="M11 6L5 12M5 12L11 18M5 12H19"></path>
-            </svg>
-        </a>
-    </button>
-</div>
 
-<body class="flex min-h-screen flex-col items-center justify-between p-24 transition-all duration-500">
+<body class="flex flex-col itens-center justify-center w-full">
+    <div class="video-container">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/s4aBZsAJfgo" frameborder="0"
+            allowfullscreen></iframe>
+    </div>
     <div class="stars"></div>
-    <h1
-        class="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none text-6xl font-semibold ">
-        Sorteio de Recompensas - Pomodoro</h1>
+    <div class="container mx-auto flex flex-col w-full itens-center justify-center text-center py-16">
+    <h1 class="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none text-6xl font-semibold">
+        Rewards Draw
+    </h1>
     <p id="cronometro"
-        class="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none text-3xl font-semibold text-sm opacity-50 text-balance transition-all duration-500">
+        class="mt-12 mb-12 inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none text-3xl font-semibold text-sm opacity-50 text-balance transition-all duration-500">
     </p>
     <div role="status" class="hidden transition-all duration-500" id="spinner">
         <svg aria-hidden="true" class="inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-purple-600"
@@ -159,11 +134,16 @@
         </div>
     </div>
 
-    <p id="recompensa"></p>
-    <button onclick="iniciarPomodoro()"
+    <div class="mt-28 gap-20 space-x-6">
+
+        <p id="recompensa"></p>
+        <button onclick="iniciarPomodoro()"
         class="ring-2 p-2 rounded-md ring-purple-700 hover:bg-purple-700 hover:text-slate-900">Iniciar Pomodoro</button>
-        
-<div class="stars2"></div>
+        <button onclick="resetarPomodoro()"
+        class="ring-2 p-2 rounded-md ring-purple-700 hover:bg-purple-700 hover:text-slate-900">Resetar Pomodoro</button>
+    </div>
+        <div class="stars2"></div>
+</div>
     <script>
         // Definindo as opções de recompensa
         const opcoesRecompensa = [
@@ -196,15 +176,30 @@
             "Expressive Writing: Jornalize sobre seus pensamentos atuais"
         ];
 
+        const opcoesBrainStudy = [
+            "Memória",
+            "Atenção Visual",
+            "Velocidade de processamento",
+            "Quebra-cabeça",
+            "Atividade motora fina",
+            "Linguagem/Texto",
+            "Matemática",
+            "Espacial",
+            "Estratégia",
+            "Coordenação",
+            "Multitarefa",
+        ]
 
-        let tempoPomodoro = 3000; // 25 minutos em segundos
+        let tempoPomodoro = 1500; // 25 minutos em segundos
         let tempoIntervalo = 600; // 10 minutos em segundos
         let element1 = document.getElementById('spinner');
         let element2 = document.getElementById('spinner2');
-        
+        let intervalo;
+
         function iniciarPomodoro() {
+            if (intervalo) clearInterval(intervalo);
             atualizarCronometro(tempoPomodoro);
-            let intervalo = setInterval(function () {
+            intervalo = setInterval(function () {
                 if (tempoPomodoro <= 0) {
                     clearInterval(intervalo);
                     sortearRecompensa();
@@ -217,7 +212,14 @@
 
             element1.classList.remove('hidden');
             element2.classList.remove('hidden');
+        }
 
+        function resetarPomodoro() {
+            clearInterval(intervalo);
+            tempoPomodoro = 1500;
+            atualizarCronometro(tempoPomodoro);
+            element1.classList.add('hidden');
+            element2.classList.add('hidden');
         }
 
         function atualizarCronometro(segundos) {
@@ -228,8 +230,8 @@
 
         function sortearRecompensa() {
             // Sorteando uma recompensa aleatória
-            const indice = Math.floor(Math.random() * opcoesRecompensa.length);
-            const recompensa = opcoesRecompensa[indice];
+            const indice = Math.floor(Math.random() * opcoesBrainStudy.length);
+            const recompensa = opcoesBrainStudy[indice];
 
             // Exibindo a recompensa sorteada
             document.getElementById("recompensa").innerText = "Sua recompensa é: " + recompensa;
